@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="sm:scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pham Nhat Quang - Personal Website</title>
+    <link rel= "stylesheet" href="css/style.css">
+</head>
+<body class="antialiased bg-slate-950">
+    <header class="bg-slate-900 text-white shadow-md p-4 sticky top-0 z-50 rounded-b-lg">
+        <nav class="container mx-auto flex flex-col md:flex-row items-center justify-between">
+            <a href="#hero" class="text-2xl font-bold text-white mb-3 md:mb-0">Pham Nhat Quang</a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="nav-link text-white hover:text-blue-600 transition-colors duration-300 rounded-md p-2">About me</a></li>
+                <li><a href="#skills" class="nav-link text-white hover:text-blue-600 transition-colors duration-300 rounded-md p-2">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link text-white hover:text-blue-600 transition-colors duration-300 rounded-md p-2">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link text-white hover:text-blue-600 transition-colors duration-300 rounded-md p-2">Contact me</a></li>
+            </ul>
+        </nav>
+    </header>
+        
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero/About Me Section -->
+        <section id="hero" class="flex flex-col md:flex-row items-center justify-center min-h-screen text-center md:text-left py-12 rounded-lg shadow-lg mb-12 p-6">
+            <!-- Image Container: Takes half width on medium screens and up, aligned left implicitly -->
+            <div class="md:w-1/2 flex justify-center mb-8 md:mb-0 md:pr-8">
+                <!-- Placeholder for profile image -->
+                <img src="./img/profile.jpg" alt="Your Profile Picture" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300">
+            </div>
+            <!-- Text Container: Takes half width on medium screens and up, aligned right implicitly -->
+            <div class="md:w-1/2">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4 animate-fade-in-down">Hi, I'm <span class="text-gray-400">Nhat Quang</span></h1>
+                <p class="text-lg md:text-xl text-gray-100 mb-6 max-w-lg mx-auto md:mx-0 animate-fade-in-up">
+                    I'm a passionate <span class="font-semibold">Web Developer</span> specializing in creating beautiful and functional web experiences. Welcome to my corner of the internet!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                    <a href="#portfolio" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md transform hover:-translate-y-1">View My Work</a>
+                    <a href="#contact" class="bg-gray-200 text-gray-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition-all duration-300 shadow-md transform hover:-translate-y-1">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section id="about" class="py-16 rounded-lg shadow-lg mb-12 p-6">
+            <h2 class="text-4xl font-bold text-center text-gray-100 mb-10">About Me</h2>
+            <div class="max-w-3xl mx-auto text-lg text-gray-100 leading-relaxed space-y-6">
+                <p>Hello! I'm Quang, a dedicated Software Engineer with a passion for creating neccessary apps for everyone. I thrive on solving complex problems and bringing ideas to life through code.</p>
+                <p>I'm currently seeking internship opportunities in the tech industry. I'm eager to apply my academic knowledge to real-world projects and expand my understanding of data analysis and processing — an area I believe holds immense value for the future of web development.</p>
+                <p>Beyond code, I have a strong curiosity for data and how it tells stories. I'm actively exploring this field and looking for internship positions where I can merge my passion for Web Dev with a data-driven mindset.</p>
+                <p>When I'm not coding, you can find me in the gym, in the cinema, or in a game.</p>
+            </div>
+        </section>
+        <section>
+        <section id="skills" class="py-16 rounded-lg shadow-lg mb-12 p-6">
+            <h2 class="text-4xl font-bold text-center text-gray-100 mb-10">My Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <!-- Example Skill Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <svg class="w-12 h-12 text-blue-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Frontend Development</h3>
+                    <p class="text-gray-600 text-sm">HTML, CSS, JavaScript, React, Next.js</p>
+                </div>
+                <!-- Example Skill Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <svg class="w-12 h-12 text-green-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2 2m-2-2l-2 2m7 0l2 2m-2-2l-2 2M14 5l2 2m-2-2l-2 2"></path></svg>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Backend Development</h3>
+                    <p class="text-gray-600 text-sm">Node.js, Python</p>
+                </div>
+                <!-- Example Skill Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <svg class="w-12 h-12 text-purple-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10l2 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-3l-2-2H9a2 2 0 00-2 2H4z"></path></svg>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Database Management</h3>
+                    <p class="text-gray-600 text-sm">MongoDB, PostgreSQL, MySQL</p>
+                </div>
+                <!-- Example Skill Card 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                    <svg class="w-12 h-12 text-red-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">DevOps & Cloud</h3>
+                    <p class="text-gray-600 text-sm">Git, Docker, AWS</p>
+                </div>
+            </div>
+        </section>
+        </section>
+        <section id="contact" class="py-16 rounded-lg shadow-lg p-6" action="https://formspree.io/f/xyzjnwbj" method="POST">
+            <h2 class="text-4xl font-bold text-center text-gray-100 mb-10">Get in Touch</h2>
+            <div class="max-w-xl mx-auto">
+                <p class="text-lg text-gray-200 text-center mb-8">
+                    Have a question or want to collaborate on a project? Feel free to reach out!
+                </p>
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-gray-600 text-sm font-bold mb-2">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-600 text-sm font-bold mb-2">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-gray-600 text-sm font-bold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Your message here..." class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-cyan-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md transform hover:-translate-y-1">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+<footer class="bg-gray-800 text-white py-8 mt-12 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Pham Nhat Quang. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <!-- Social Media Links (placeholders) -->
+                <a href="https://www.linkedin.com/in/pham-nhat-quang-58b04817a/" class="text-gray-600 hover:text-white transition-colors duration-300">LinkedIn</a>
+                <a href="https://github.com/PhamNhatQuang207" class="text-gray-600 hover:text-white transition-colors duration-300">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</html>
