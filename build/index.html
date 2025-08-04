@@ -80,6 +80,55 @@
             </div>
         </section>
         </section>
+        
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-16 rounded-lg shadow-lg mb-12 p-6">
+            <h2 class="text-4xl font-bold text-center text-white mb-10">My Portfolio</h2>
+            
+            <!-- Slideshow Container -->
+            <div id="projectSlideshow" class="max-w-4xl mx-auto relative">
+                
+                <div class="mySlides relative transition-opacity duration-700 ease-in-out">
+                    <div class="h-96 w-full overflow-hidden rounded-lg shadow-xl flex items-center justify-center bg-gray-800">
+                        <img src="./img/slideshow/products.png" alt="Image 1" class="w-full h-96 object-contain">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full bg-gray-800 bg-opacity-70 text-white text-center py-4 rounded-b-lg">
+                        <h3 class="text-xl font-semibold">Project Title One</h3>
+                    </div>
+                </div>
+
+                <div class="mySlides relative hidden transition-opacity duration-700 ease-in-out">
+                    <div class="h-96 w-full overflow-hidden rounded-lg shadow-xl flex items-center justify-center bg-gray-800">
+                        <img src="./img/slideshow/header.png" alt="Image 2" class="w-full h-96 object-contain">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full bg-gray-800 bg-opacity-70 text-white text-center py-4 rounded-b-lg">
+                        <h3 class="text-xl font-semibold">Project Title Two</h3>
+                    </div>
+                </div>
+                
+                <div class="mySlides relative hidden transition-opacity duration-700 ease-in-out">
+                    <div class="h-96 w-full overflow-hidden rounded-lg shadow-xl flex items-center justify-center bg-gray-800">
+                        <img src="./img/slideshow/auth.png" alt="Image 3" class="w-full h-96 object-contain">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full bg-gray-800 bg-opacity-70 text-white text-center py-4 rounded-b-lg">
+                        <h3 class="text-xl font-semibold">Project Title Three</h3>
+                    </div>
+                </div>
+
+                <div class="mySlides relative hidden transition-opacity duration-700 ease-in-out">
+                    <div class="h-96 w-full overflow-hidden rounded-lg shadow-xl flex items-center justify-center bg-gray-800">
+                        <img src="./img/slideshow/admin.png" alt="Image 4" class="w-full h-96 object-contain">
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full bg-gray-800 bg-opacity-70 text-white text-center py-4 rounded-b-lg">
+                        <h3 class="text-xl font-semibold">Project Title Four</h3>
+                    </div>
+                </div>
+                <!-- Navigation Buttons -->
+                <button class="prev absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer text-white bg-gray-900 bg-opacity-50 hover:bg-opacity-80 transition-all duration-300 rounded-lg px-4 py-2 font-bold text-xl z-10">❮</button>
+                <button class="next absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-white bg-gray-900 bg-opacity-50 hover:bg-opacity-80 transition-all duration-300 rounded-lg px-4 py-2 font-bold text-xl z-10">❯</button>
+            </div>
+        </section>
+        
         <section id="contact" class="py-16 rounded-lg shadow-lg p-6" action="https://formspree.io/f/xyzjnwbj" method="POST">
             <h2 class="text-4xl font-bold text-center text-gray-100 mb-10">Get in Touch</h2>
             <div class="max-w-xl mx-auto">
@@ -117,4 +166,63 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        // Use a wrapper function to manage the slideshow state and logic
+        function setupSlideshow(containerId) {
+            let slideIndex = 1;
+            
+            // Function to display the correct slide
+            function showSlides(n) {
+                let i;
+                let slides = document.querySelectorAll(`#${containerId} .mySlides`);
+                
+                if (n > slides.length) { slideIndex = 1; }
+                if (n < 1) { slideIndex = slides.length; }
+                
+                // Hide all slides
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].classList.add("hidden");
+                }
+                
+                // Show the current slide
+                slides[slideIndex-1].classList.remove("hidden");
+            }
+
+            // Function to change slides with prev/next buttons
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+            
+            // Function to directly go to a specific slide
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+            
+            // Event listeners for the slideshow
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initial display of the first slide
+                showSlides(slideIndex);
+
+                // Add event listeners for prev/next buttons
+                document.querySelector(`#${containerId} .prev`).addEventListener("click", function() {
+                    plusSlides(-1);
+                });
+                
+                document.querySelector(`#${containerId} .next`).addEventListener("click", function() {
+                    plusSlides(1);
+                });
+                
+                // No dot indicators anymore
+
+                // Set up automatic slide progression
+                setInterval(function() {
+                    plusSlides(1);
+                }, 5000); // Change image every 5 seconds
+            });
+        }
+        
+        // Initialize the slideshow for the portfolio section
+        setupSlideshow('projectSlideshow');
+    </script>
 </html>
