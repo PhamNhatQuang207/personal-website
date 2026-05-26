@@ -9,6 +9,13 @@
 </head>
 <body>
 
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Noise Overlay -->
+<div class="noise-overlay" aria-hidden="true"></div>
+
 <!-- CRT Scanline Overlay -->
 <div class="crt-overlay" aria-hidden="true"></div>
 
@@ -105,6 +112,8 @@
     </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- Skills Section -->
 <section id="skills" class="reveal">
     <div class="section-header">
@@ -198,6 +207,8 @@
     </div>
 </section>
 
+<div class="section-divider"></div>
+
 <!-- Portfolio Section -->
 <section id="portfolio" class="reveal">
     <div class="section-header">
@@ -290,6 +301,8 @@
         </div>
     </div>
 </section>
+
+<div class="section-divider"></div>
 
 <!-- Contact Section -->
 <section id="contact" class="reveal">
@@ -479,7 +492,62 @@
 })();
 
 // =============================================
-// 3D TILT ON PROJECT CARDS
+// CUSTOM CURSOR & NAV HIGHLIGHTING
+// =============================================
+(function() {
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    if(!dot || !ring) return;
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
+    });
+
+    // Smooth follow for the ring
+    function renderCursor() {
+        ringX += (mouseX - ringX) * 0.15;
+        ringY += (mouseY - ringY) * 0.15;
+        ring.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`;
+        requestAnimationFrame(renderCursor);
+    }
+    requestAnimationFrame(renderCursor);
+
+    // Hover effect on interactables
+    document.querySelectorAll('a, button, input, textarea').forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+    });
+
+    // Active nav tracking
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(sec => {
+            const sectionTop = sec.offsetTop;
+            if (scrollY >= sectionTop - 150) {
+                current = sec.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+})();
+
+// =============================================
+// 3D TILT & HOVER GLOW ON PROJECT CARDS
 // =============================================
 (function() {
     document.querySelectorAll('.project-card-inner').forEach(card => {
@@ -491,7 +559,10 @@
             const centerY = rect.height / 2;
             const rotateX = ((y - centerY) / centerY) * -6;
             const rotateY = ((x - centerX) / centerX) * 6;
+            
             card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
         });
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'rotateX(0) rotateY(0) scale(1)';

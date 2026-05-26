@@ -57,6 +57,58 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   position: relative;
+  cursor: none;
+}
+
+/* --- Custom Cursor --- */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10001;
+  transition: transform 0.1s ease;
+  box-shadow: 0 0 12px var(--green), 0 0 30px var(--green-glow);
+  mix-blend-mode: screen;
+}
+
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(0, 255, 65, 0.35);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor-ring.hovering {
+  width: 48px;
+  height: 48px;
+  border-color: var(--cyan);
+}
+
+/* --- Noise Grain Overlay --- */
+.noise-overlay {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: grainShift 0.5s steps(1) infinite;
+}
+
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, 3%); }
+  50% { transform: translate(3%, -1%); }
+  75% { transform: translate(-1%, -3%); }
+  100% { transform: translate(2%, 1%); }
 }
 
 ::-webkit-scrollbar { width: 6px; }
@@ -163,6 +215,43 @@ body {
 
 .nav-links a:hover::before {
   opacity: 1;
+}
+
+.nav-links a.active {
+  color: var(--green);
+  background: rgba(0, 255, 65, 0.08);
+}
+
+.nav-links a.active::before {
+  opacity: 1;
+}
+
+/* --- Section Dividers --- */
+.section-divider {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--green-dim) 20%,
+    var(--cyan-dim) 50%,
+    var(--green-dim) 80%,
+    transparent
+  );
+  opacity: 0.3;
+  position: relative;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: 50%; transform: translateX(-50%);
+  width: 6px; height: 6px;
+  background: var(--cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan-glow);
 }
 
 /* --- Sections --- */
@@ -620,22 +709,41 @@ section {
   position: relative;
 }
 
+/* Mouse-following glow border */
 .project-card-inner::before {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: var(--radius);
   padding: 1px;
-  background: linear-gradient(135deg, transparent, var(--cyan-glow), transparent);
+  background: radial-gradient(300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--cyan), transparent 60%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
-  transition: var(--transition);
+  transition: opacity var(--transition);
   pointer-events: none;
 }
 
+/* Shine sweep on hover */
+.project-card-inner::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+  transform: skewX(-15deg);
+  transition: none;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .project-card-inner:hover::before { opacity: 1; }
+
+.project-card-inner:hover::after {
+  left: 150%;
+  transition: left 0.7s ease;
+}
 
 .project-card-inner:hover {
   border-color: var(--cyan-dim);
@@ -838,11 +946,11 @@ textarea.form-input {
   color: var(--green);
 }
 
-/* --- Scroll Reveal Animation --- */
+/* --- Scroll Reveal Animation (Staggered) --- */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
@@ -850,8 +958,71 @@ textarea.form-input {
   transform: translateY(0);
 }
 
+/* Stagger children inside visible sections */
+.reveal.visible .skill-panel,
+.reveal.visible .project-card,
+.reveal.visible .terminal-window {
+  animation: staggerIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.reveal.visible .skill-panel:nth-child(1),
+.reveal.visible .project-card:nth-child(1) { animation-delay: 0.05s; }
+.reveal.visible .skill-panel:nth-child(2),
+.reveal.visible .project-card:nth-child(2) { animation-delay: 0.12s; }
+.reveal.visible .skill-panel:nth-child(3),
+.reveal.visible .project-card:nth-child(3) { animation-delay: 0.19s; }
+.reveal.visible .skill-panel:nth-child(4),
+.reveal.visible .project-card:nth-child(4) { animation-delay: 0.26s; }
+.reveal.visible .project-card:nth-child(5) { animation-delay: 0.33s; }
+
+@keyframes staggerIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --- Hero entrance animation --- */
+.hero-content {
+  animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-avatar {
+  animation: heroFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.hero-text .greeting {
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+.hero-text .glitch {
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+
+.hero-buttons {
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+
   .nav-bar {
     padding: 0 1rem;
   }
