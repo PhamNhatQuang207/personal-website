@@ -1,263 +1,520 @@
 <!DOCTYPE html>
-<html lang="en" class="sm:scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pham Nhat Quang - Personal Website</title>
-    <link rel= "stylesheet" href="css/style.css">
-    <style>
-        /* Custom styles to ensure slideshow navigation buttons appear correctly */
-        #projectSlideshow {
-            position: relative;
-            overflow: visible;
-        }
-        
-        #projectSlideshow .prev,
-        #projectSlideshow .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 30;
-            background-color: rgba(97, 103, 115, 0.7);
-            color: white;
-            font-weight: bold;
-            font-size: 1.25rem;
-            padding: 1rem 1.5rem;
-            border-radius: 50%; /* Make buttons fully rounded (circular) */
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        #projectSlideshow .prev { left: 1rem; }
-        #projectSlideshow .next { right: 1rem; }
-        
-        #projectSlideshow .prev:hover,
-        #projectSlideshow .next:hover {
-            background-color: rgba(17, 24, 39, 0.9);
-        }
-    </style>
+    <title>Pham Nhat Quang — Software Engineer</title>
+    <meta name="description" content="Personal website of Pham Nhat Quang — Software Engineer, Web Developer, and Data Enthusiast. Terminal-style portfolio.">
+    <link rel="stylesheet" href="css/terminal.css">
 </head>
-<body class="antialiased bg-slate-950">
-    <header class="bg-slate-900 text-white shadow-md p-4 sticky top-0 z-50 rounded-b-lg">
-        <nav class="container mx-auto flex flex-col md:flex-row items-center justify-between">
-            <a href="#hero" class="text-2xl font-bold text-white mb-3 md:mb-0">Pham Nhat Quang</a>
-            <ul class="flex space-x-6">
-                <li><a href="#about" class="nav-link text-white hover:text-blue-600 transition-colors duration-300 rounded-md p-2">About me</a></li>
-                <li><a href="#skills" class="nav-link text-white hover:text-blue-600 transition-colors duration-300 rounded-md p-2">Skills</a></li>
-                <li><a href="#portfolio" class="nav-link text-white hover:text-blue-600 transition-colors duration-300 rounded-md p-2">Portfolio</a></li>
-                <li><a href="#contact" class="nav-link text-white hover:text-blue-600 transition-colors duration-300 rounded-md p-2">Contact me</a></li>
-            </ul>
-        </nav>
-    </header>
-        
-    <main class="container mx-auto px-4 py-8">
-        <!-- Hero/About Me Section -->
-        <section id="hero" class="flex flex-col md:flex-row items-center justify-center min-h-screen text-center md:text-left py-12 rounded-lg shadow-lg mb-12 p-6">
-            <!-- Image Container: Takes half width on medium screens and up, aligned left implicitly -->
-            <div class="md:w-1/2 flex justify-center mb-8 md:mb-0 md:pr-8">
-                <!-- Placeholder for profile image -->
-                <img src="./img/profile.jpg" alt="Your Profile Picture" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-xl border-4 border-white transform hover:scale-105 transition-transform duration-300">
-            </div>
-            <!-- Text Container: Takes half width on medium screens and up, aligned right implicitly -->
-            <div class="md:w-1/2">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4 animate-fade-in-down">Hi, I'm <span class="text-gray-400">Nhat Quang</span></h1>
-                <p class="text-lg md:text-xl text-gray-100 mb-6 max-w-lg mx-auto md:mx-0 animate-fade-in-up">
-                    I'm a passionate <span class="font-semibold">Web Developer</span> specializing in creating beautiful and functional web experiences. Welcome to my corner of the internet!
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-                    <a href="#portfolio" class="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md transform hover:-translate-y-1">View My Work</a>
-                    <a href="#contact" class="bg-gray-200 text-gray-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition-all duration-300 shadow-md transform hover:-translate-y-1">Get in Touch</a>
-                </div>
-            </div>
-        </section>
-        <!-- About Section -->
-        <section id="about" class="py-16 rounded-lg shadow-lg mb-12 p-6">
-            <h2 class="text-4xl font-bold text-center text-gray-100 mb-10">About Me</h2>
-            <div class="max-w-3xl mx-auto text-lg text-gray-100 leading-relaxed space-y-6">
-                <p>Hello! I'm Quang, a dedicated Software Engineer with a passion for creating neccessary apps for everyone. I thrive on solving complex problems and bringing ideas to life through code.</p>
-                <p>I'm currently seeking internship opportunities in the tech industry. I'm eager to apply my academic knowledge to real-world projects and expand my understanding of data analysis and processing — an area I believe holds immense value for the future of web development.</p>
-                <p>Beyond code, I have a strong curiosity for data and how it tells stories. I'm actively exploring this field and looking for internship positions where I can merge my passion for Web Dev with a data-driven mindset.</p>
-                <p>When I'm not coding, you can find me in the gym, in the cinema, or in a game.</p>
-            </div>
-        </section>
-        <section>
-        <section id="skills" class="py-16 rounded-lg shadow-lg mb-12 p-6">
-            <h2 class="text-4xl font-bold text-center text-gray-100 mb-10">My Skills</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                <!-- Example Skill Card 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <svg class="w-12 h-12 text-blue-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Frontend Development</h3>
-                    <p class="text-gray-600 text-sm">HTML, CSS, JavaScript, React, Angular</p>
-                </div>
-                <!-- Example Skill Card 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <svg class="w-12 h-12 text-green-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2 2m-2-2l-2 2m7 0l2 2m-2-2l-2 2M14 5l2 2m-2-2l-2 2"></path></svg>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Backend Development</h3>
-                    <p class="text-gray-600 text-sm">ASP.NET, Python</p>
-                </div>
-                <!-- Example Skill Card 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <svg class="w-12 h-12 text-purple-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10l2 2h12a2 2 0 002-2V9a2 2 0 00-2-2h-3l-2-2H9a2 2 0 00-2 2H4z"></path></svg>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Database Management</h3>
-                    <p class="text-gray-600 text-sm">MS SQL, PostgreSQL, MySQL</p>
-                </div>
-                <!-- Example Skill Card 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
-                    <svg class="w-12 h-12 text-red-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">DevOps & Cloud</h3>
-                    <p class="text-gray-600 text-sm">Git, Docker, AWS</p>
-                </div>
-            </div>
-        </section>
-        </section>
-        
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="py-16 rounded-lg shadow-lg mb-12 p-6">
-            <h2 class="text-4xl font-bold text-center text-white mb-10">My Project</h2>
-            
-            <!-- Slideshow Container -->
-            <div id="projectSlideshow" class="max-w-4xl mx-auto relative">
-                
-                <div class="mySlides relative transition-opacity duration-700 ease-in-out">
-                    <div class="h-96 w-full overflow-hidden rounded-lg shadow-xl flex items-center justify-center bg-gray-800">
-                        <img src="./img/slideshow/products.png" alt="Image 1" class="w-full h-96 object-contain">
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full bg-gray-800 bg-opacity-70 text-white text-center py-4 rounded-b-lg">
-                        <h3 class="text-xl font-semibold">Product Page</h3>
-                    </div>
-                </div>
+<body>
 
-                <div class="mySlides relative hidden transition-opacity duration-700 ease-in-out">
-                    <div class="h-96 w-full overflow-hidden rounded-lg shadow-xl flex items-center justify-center bg-gray-800">
-                        <img src="./img/slideshow/header.png" alt="Image 2" class="w-full h-96 object-contain">
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full bg-gray-800 bg-opacity-70 text-white text-center py-4 rounded-b-lg">
-                        <h3 class="text-xl font-semibold">Header Section</h3>
-                    </div>
-                </div>
-                
-                <div class="mySlides relative hidden transition-opacity duration-700 ease-in-out">
-                    <div class="h-96 w-full overflow-hidden rounded-lg shadow-xl flex items-center justify-center bg-gray-800">
-                        <img src="./img/slideshow/auth.png" alt="Image 3" class="w-full h-96 object-contain">
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full bg-gray-800 bg-opacity-70 text-white text-center py-4 rounded-b-lg">
-                        <h3 class="text-xl font-semibold">Login Page</h3>
-                    </div>
-                </div>
+<!-- CRT Scanline Overlay -->
+<div class="crt-overlay" aria-hidden="true"></div>
 
-                <div class="mySlides relative hidden transition-opacity duration-700 ease-in-out">
-                    <div class="h-96 w-full overflow-hidden rounded-lg shadow-xl flex items-center justify-center bg-gray-800">
-                        <img src="./img/slideshow/admin.png" alt="Image 4" class="w-full h-96 object-contain">
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full bg-gray-800 bg-opacity-70 text-white text-center py-4 rounded-b-lg">
-                        <h3 class="text-xl font-semibold">Admin Dashboard</h3>
-                    </div>
-                </div>
-                <!-- Navigation Buttons -->
-                <button class="prev absolute left-4 top-1/2 -translate-y-1/2 cursor-pointer text-white bg-gray-900 bg-opacity-50 hover:bg-opacity-80 transition-all duration-300 w-12 h-12 flex items-center justify-center font-bold text-xl" style="z-index: 20;">❮</button>
-                <button class="next absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-white bg-gray-900 bg-opacity-50 hover:bg-opacity-80 transition-all duration-300 w-12 h-12 flex items-center justify-center font-bold text-xl" style="z-index: 20;">❯</button>
-            </div>
-            <div class="mt-12 max-w-3xl mx-auto text-lg text-gray-100 leading-relaxed space-y-6">
-                <p>This is my first project, I built it while interning at BIC Insurance Company. You can visit <a href="https://master.dfqxb5hbzjqub.amplifyapp.com" class="text-indigo-400">https://master.dfqxb5hbzjqub.amplifyapp.com</a> to see my project.</p>
-                <p>The project is a sales website for the company with the technology used being Angular for frontend, ASP.NET for backend and MSSQL for database. I have successfuly deployed the project to AWS using Docker, Elastic Beanstalk for backend and Amplify for frontend.</p>
-                <p>The database will store user information, product details, orders details and backend will store the content for the static pages.</p>
-                <p>I have built authentication system using JWT. The search module I havent finished yet but I will complete in the future.</p>
-            </div>
-        </section>
-        
-        <section id="contact" class="py-16 rounded-lg shadow-lg p-6" action="https://formspree.io/f/xyzjnwbj" method="POST">
-            <h2 class="text-4xl font-bold text-center text-gray-100 mb-10">Get in Touch</h2>
-            <div class="max-w-xl mx-auto">
-                <p class="text-lg text-gray-200 text-center mb-8">
-                    Have a question or want to collaborate on a project? Feel free to reach out!
-                </p>
-                <form class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-gray-600 text-sm font-bold mb-2">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your Name" class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200">
-                    </div>
-                    <div>
-                        <label for="email" class="block text-gray-600 text-sm font-bold mb-2">Email</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200">
-                    </div>
-                    <div>
-                        <label for="message" class="block text-gray-600 text-sm font-bold mb-2">Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Your message here..." class="shadow appearance-none border rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow duration-200"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-cyan-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-md transform hover:-translate-y-1">Send Message</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-</body>
-<footer class="bg-gray-800 text-white py-8 mt-12 rounded-t-lg">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2025 Pham Nhat Quang. All rights reserved.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <!-- Social Media Links (placeholders) -->
-                <a href="https://www.linkedin.com/in/pham-nhat-quang-58b04817a/" class="text-gray-600 hover:text-white transition-colors duration-300">LinkedIn</a>
-                <a href="https://github.com/PhamNhatQuang207" class="text-gray-600 hover:text-white transition-colors duration-300">GitHub</a>
+<!-- Grid Background -->
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<nav class="nav-bar" id="navbar">
+    <div class="nav-prompt">
+        <span class="user">quang</span><span class="at">@</span><span class="host">portfolio</span><span class="text-dim">:</span><span class="path">~/home</span><span style="color:var(--green)">$</span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#about">about</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#portfolio">projects</a></li>
+        <li><a href="#contact">contact</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <canvas id="heroCanvas" class="hero-canvas"></canvas>
+    <div class="hero-content">
+        <div class="hero-avatar">
+            <div class="hex-frame">
+                <img src="./img/profile.jpg" alt="Pham Nhat Quang" loading="eager">
             </div>
         </div>
-    </footer>
-    
-    <script>
-        // Use a wrapper function to manage the slideshow state and logic
-        function setupSlideshow(containerId) {
-            let slideIndex = 1;
-            
-            // Function to display the correct slide
-            function showSlides(n) {
-                let i;
-                let slides = document.querySelectorAll(`#${containerId} .mySlides`);
-                
-                if (n > slides.length) { slideIndex = 1; }
-                if (n < 1) { slideIndex = slides.length; }
-                
-                // Hide all slides
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].classList.add("hidden");
-                }
-                
-                // Show the current slide
-                slides[slideIndex-1].classList.remove("hidden");
-            }
+        <div class="hero-text">
+            <p class="greeting"><span>&gt;</span> INITIALIZING PROFILE...</p>
+            <h1 class="glitch" data-text="PHAM NHAT QUANG">PHAM NHAT QUANG</h1>
+            <p class="typing-text" id="typingText"><span class="typing-cursor"></span></p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn-terminal primary">
+                    <span class="btn-key">↵</span> View Projects
+                </a>
+                <a href="#contact" class="btn-terminal secondary">
+                    <span class="btn-key">ESC</span> Contact
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
-            // Function to change slides with prev/next buttons
-            function plusSlides(n) {
-                showSlides(slideIndex += n);
-            }
-            
-            // Function to directly go to a specific slide
-            function currentSlide(n) {
-                showSlides(slideIndex = n);
-            }
-            
-            // Event listeners for the slideshow
-            document.addEventListener('DOMContentLoaded', function() {
-                // Initial display of the first slide
-                showSlides(slideIndex);
+<!-- About Section -->
+<section id="about" class="reveal">
+    <div class="section-header">
+        <h2>About Me</h2>
+        <p class="section-tag"><span>$</span> cat about.md</p>
+    </div>
+    <div class="terminal-window">
+        <div class="terminal-titlebar">
+            <div class="terminal-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+            </div>
+            <span class="terminal-title">about.sh — bash</span>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-line">
+                <span class="prompt">$</span>
+                <span class="cmd">whoami</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">Hello! I'm Quang, a dedicated Software Engineer with a passion for creating necessary apps for everyone. I thrive on solving complex problems and bringing ideas to life through code.</span>
+            </div>
+            <div class="terminal-line">
+                <span class="prompt">$</span>
+                <span class="cmd">cat goals.txt</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">I'm currently seeking internship opportunities in the tech industry. I'm eager to apply my academic knowledge to real-world projects and expand my understanding of data analysis and processing — an area I believe holds immense value for the future of web development.</span>
+            </div>
+            <div class="terminal-line">
+                <span class="prompt">$</span>
+                <span class="cmd">cat interests.txt</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">Beyond code, I have a strong curiosity for data and how it tells stories. I'm actively exploring this field and looking for internship positions where I can merge my passion for Web Dev with a data-driven mindset.</span>
+            </div>
+            <div class="terminal-line">
+                <span class="prompt">$</span>
+                <span class="cmd">cat hobbies.txt</span>
+            </div>
+            <div class="terminal-line">
+                <span class="output">When I'm not coding, you can find me in the gym, in the cinema, or in a game.</span>
+            </div>
+            <div class="terminal-line">
+                <span class="prompt">$</span>
+                <span class="typing-cursor"></span>
+            </div>
+        </div>
+    </div>
+</section>
 
-                // Add event listeners for prev/next buttons
-                document.querySelector(`#${containerId} .prev`).addEventListener("click", function() {
-                    plusSlides(-1);
-                });
-                
-                document.querySelector(`#${containerId} .next`).addEventListener("click", function() {
-                    plusSlides(1);
-                });
+<!-- Skills Section -->
+<section id="skills" class="reveal">
+    <div class="section-header">
+        <h2>Skills</h2>
+        <p class="section-tag"><span>$</span> systemctl status skills</p>
+    </div>
+    <div class="skills-grid">
+        <!-- Frontend -->
+        <div class="skill-panel">
+            <div class="skill-panel-header">
+                <h3>Frontend</h3>
+                <div class="status"><span class="status-dot"></span> ACTIVE</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">HTML / CSS</span><span class="pct">90%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">JavaScript</span><span class="pct">80%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">React</span><span class="pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">Angular</span><span class="pct">75%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+            </div>
+        </div>
 
-                // Set up automatic slide progression
-                setInterval(function() {
-                    plusSlides(1);
-                }, 3000); // Change image every 3 seconds
-            });
+        <!-- Backend -->
+        <div class="skill-panel">
+            <div class="skill-panel-header">
+                <h3>Backend</h3>
+                <div class="status"><span class="status-dot"></span> ACTIVE</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">ASP.NET</span><span class="pct">80%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">Python</span><span class="pct">75%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">Node.js</span><span class="pct">60%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="60"></div></div>
+            </div>
+        </div>
+
+        <!-- Database -->
+        <div class="skill-panel">
+            <div class="skill-panel-header">
+                <h3>Database</h3>
+                <div class="status"><span class="status-dot"></span> ACTIVE</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">MS SQL</span><span class="pct">85%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">PostgreSQL</span><span class="pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">MySQL</span><span class="pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+            </div>
+        </div>
+
+        <!-- DevOps -->
+        <div class="skill-panel">
+            <div class="skill-panel-header">
+                <h3>DevOps & Cloud</h3>
+                <div class="status"><span class="status-dot"></span> ACTIVE</div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">Git</span><span class="pct">85%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">Docker</span><span class="pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="70"></div></div>
+            </div>
+            <div class="skill-item">
+                <div class="skill-item-header"><span class="name">AWS</span><span class="pct">65%</span></div>
+                <div class="skill-bar"><div class="skill-bar-fill" data-width="65"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="reveal">
+    <div class="section-header">
+        <h2>Projects</h2>
+        <p class="section-tag"><span>$</span> ls ~/projects/</p>
+    </div>
+    <div class="projects-grid">
+        <div class="project-card" id="project-bic-frontend">
+            <div class="project-card-inner">
+                <img src="./img/slideshow/products.png" alt="BIC Insurance - Products Page" class="project-img" loading="lazy">
+                <div class="project-info">
+                    <h3>BIC Insurance — Frontend</h3>
+                    <div class="project-tags">
+                        <span>Angular</span>
+                        <span>TypeScript</span>
+                        <span>AWS Amplify</span>
+                    </div>
+                    <p>Sales website for BIC Insurance Company built during internship. Product catalog, auth system, and responsive UI with Angular Material.</p>
+                    <span class="project-link offline">&gt; deployment discontinued</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" id="project-bic-backend">
+            <div class="project-card-inner">
+                <img src="./img/slideshow/admin.png" alt="BIC Insurance - Admin Dashboard" class="project-img" loading="lazy">
+                <div class="project-info">
+                    <h3>BIC Insurance — Backend</h3>
+                    <div class="project-tags">
+                        <span>ASP.NET</span>
+                        <span>MSSQL</span>
+                        <span>Docker</span>
+                        <span>AWS EB</span>
+                        <span>JWT</span>
+                    </div>
+                    <p>RESTful API with JWT authentication, admin dashboard, and database management. Deployed on AWS Elastic Beanstalk with Docker.</p>
+                    <span class="project-link offline">&gt; deployment discontinued</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" id="project-fittrack-dashboard">
+            <div class="project-card-inner">
+                <img src="./img/fittrack/Home.png" alt="FitTrack - Dashboard" class="project-img" loading="lazy">
+                <div class="project-info">
+                    <h3>FitTrack — Dashboard</h3>
+                    <div class="project-tags">
+                        <span>React 19</span>
+                        <span>Tailwind CSS</span>
+                        <span>Recharts</span>
+                    </div>
+                    <p>Full-stack MERN fitness tracker. Dashboard with workout overview, weekly schedules, and body metrics visualization.</p>
+                    <a href="https://fit-track-frontend-gray.vercel.app" target="_blank" rel="noopener" class="project-link">&gt; open --url ↗</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" id="project-fittrack-planner">
+            <div class="project-card-inner">
+                <img src="./img/fittrack/WeeklyPlan.png" alt="FitTrack - Weekly Plan Builder" class="project-img" loading="lazy">
+                <div class="project-info">
+                    <h3>FitTrack — Weekly Planner</h3>
+                    <div class="project-tags">
+                        <span>Node.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>JWT</span>
+                    </div>
+                    <p>Create custom weekly workout plans, browse exercise templates by muscle group, and track active workout sessions in real-time.</p>
+                    <a href="https://fit-track-frontend-gray.vercel.app" target="_blank" rel="noopener" class="project-link">&gt; open --url ↗</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card" id="project-fittrack-progress">
+            <div class="project-card-inner">
+                <img src="./img/fittrack/ProgressTracking1.png" alt="FitTrack - Progress Tracking" class="project-img" loading="lazy">
+                <div class="project-info">
+                    <h3>FitTrack — Progress Tracking</h3>
+                    <div class="project-tags">
+                        <span>Recharts</span>
+                        <span>REST API</span>
+                        <span>Vercel</span>
+                        <span>Render</span>
+                    </div>
+                    <p>Strength progression analytics, body weight tracking with charts, workout history with detailed logs, and performance metrics.</p>
+                    <a href="https://fit-track-frontend-gray.vercel.app" target="_blank" rel="noopener" class="project-link">&gt; open --url ↗</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="reveal">
+    <div class="section-header">
+        <h2>Contact</h2>
+        <p class="section-tag"><span>$</span> send --transmission</p>
+    </div>
+    <div class="terminal-window">
+        <div class="terminal-titlebar">
+            <div class="terminal-dots">
+                <span class="dot-red"></span>
+                <span class="dot-yellow"></span>
+                <span class="dot-green"></span>
+            </div>
+            <span class="terminal-title">transmission.sh — bash</span>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-line" style="margin-bottom: 1.5rem;">
+                <span class="prompt">$</span>
+                <span class="cmd">echo "Have a question or want to collaborate? Send a transmission."</span>
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/xyzjnwbj" method="POST">
+                <div class="form-group">
+                    <label for="name"><span>&gt;</span> name</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><span>&gt;</span> email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message"><span>&gt;</span> message</label>
+                    <textarea id="message" name="message" class="form-input" placeholder="Your message here..." rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">▶ TRANSMIT MESSAGE</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-status">
+        <span class="online"><span class="status-dot"></span> ONLINE</span>
+        <span>© 2025 Pham Nhat Quang</span>
+        <span id="footerUptime"></span>
+    </div>
+    <div class="footer-links">
+        <a href="https://www.linkedin.com/in/pham-nhat-quang-58b04817a/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/PhamNhatQuang207" target="_blank" rel="noopener">GitHub</a>
+    </div>
+</footer>
+
+<!-- Three.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script>
+// =============================================
+// THREE.JS — 3D HERO ANIMATION
+// =============================================
+(function() {
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Wireframe Icosahedron
+    const icoGeo = new THREE.IcosahedronGeometry(2.5, 1);
+    const icoMat = new THREE.MeshBasicMaterial({ color: 0x00ff41, wireframe: true, transparent: true, opacity: 0.25 });
+    const ico = new THREE.Mesh(icoGeo, icoMat);
+    scene.add(ico);
+
+    // Inner icosahedron
+    const icoGeo2 = new THREE.IcosahedronGeometry(1.8, 0);
+    const icoMat2 = new THREE.MeshBasicMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.12 });
+    const ico2 = new THREE.Mesh(icoGeo2, icoMat2);
+    scene.add(ico2);
+
+    // Particles
+    const particleCount = 300;
+    const pGeo = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount * 3; i++) {
+        positions[i] = (Math.random() - 0.5) * 18;
+    }
+    pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const pMat = new THREE.PointsMaterial({ color: 0x00ff41, size: 0.03, transparent: true, opacity: 0.5 });
+    const particles = new THREE.Points(pGeo, pMat);
+    scene.add(particles);
+
+    camera.position.z = 6;
+
+    // Mouse tracking
+    let mouseX = 0, mouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+
+    // Resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Animate
+    function animate() {
+        requestAnimationFrame(animate);
+        ico.rotation.x += 0.003;
+        ico.rotation.y += 0.005;
+        ico2.rotation.x -= 0.004;
+        ico2.rotation.y -= 0.003;
+        particles.rotation.y += 0.0005;
+
+        // Mouse parallax
+        camera.position.x += (mouseX * 0.8 - camera.position.x) * 0.03;
+        camera.position.y += (-mouseY * 0.5 - camera.position.y) * 0.03;
+        camera.lookAt(scene.position);
+
+        renderer.render(scene, camera);
+    }
+    animate();
+})();
+
+// =============================================
+// TYPING ANIMATION
+// =============================================
+(function() {
+    const el = document.getElementById('typingText');
+    if (!el) return;
+    const texts = [
+        'Software Engineer',
+        'Web Developer',
+        'Data Enthusiast',
+        'Problem Solver'
+    ];
+    let textIndex = 0, charIndex = 0, deleting = false;
+
+    function type() {
+        const current = texts[textIndex];
+        if (!deleting) {
+            el.innerHTML = current.substring(0, charIndex + 1) + '<span class="typing-cursor"></span>';
+            charIndex++;
+            if (charIndex === current.length) {
+                deleting = true;
+                setTimeout(type, 2000);
+                return;
+            }
+            setTimeout(type, 80);
+        } else {
+            el.innerHTML = current.substring(0, charIndex - 1) + '<span class="typing-cursor"></span>';
+            charIndex--;
+            if (charIndex === 0) {
+                deleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                setTimeout(type, 500);
+                return;
+            }
+            setTimeout(type, 40);
         }
-        
-        // Initialize the slideshow for the portfolio section
-        setupSlideshow('projectSlideshow');
-    </script>
+    }
+    setTimeout(type, 1000);
+})();
+
+// =============================================
+// SCROLL REVEAL + SKILL BARS
+// =============================================
+(function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Animate skill bars inside
+                entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+                    bar.style.width = bar.dataset.width + '%';
+                });
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+// =============================================
+// 3D TILT ON PROJECT CARDS
+// =============================================
+(function() {
+    document.querySelectorAll('.project-card-inner').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -6;
+            const rotateY = ((x - centerX) / centerX) * 6;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+        });
+    });
+})();
+
+// =============================================
+// FOOTER UPTIME
+// =============================================
+(function() {
+    const el = document.getElementById('footerUptime');
+    if (!el) return;
+    const start = new Date();
+    function update() {
+        const diff = Math.floor((Date.now() - start) / 1000);
+        const m = Math.floor(diff / 60);
+        const s = diff % 60;
+        el.textContent = 'SESSION: ' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    }
+    setInterval(update, 1000);
+    update();
+})();
+</script>
+</body>
 </html>
